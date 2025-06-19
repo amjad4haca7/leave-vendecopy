@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import { LeaveForm } from '@/components/LeaveForm';
 import { LetterDisplay } from '@/components/LetterDisplay';
-import { ParticleBackground } from '@/components/ParticleBackground';
 
 const Index = () => {
   const [generatedLetter, setGeneratedLetter] = useState<string>('');
@@ -18,17 +17,27 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
-      <ParticleBackground />
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50 relative overflow-hidden">
+      {/* Geometric Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-green-200/30 to-emerald-200/30 rounded-full blur-xl"></div>
+        <div className="absolute bottom-20 right-20 w-48 h-48 bg-gradient-to-br from-green-300/20 to-emerald-300/20 rounded-full blur-xl"></div>
+        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-gradient-to-br from-emerald-200/40 to-green-200/40 rounded-full blur-xl"></div>
+        
+        {/* 3D Geometric Shapes */}
+        <div className="absolute top-10 right-1/4 w-16 h-16 bg-gradient-to-br from-green-400/10 to-emerald-400/10 rotate-45 rounded-lg blur-sm"></div>
+        <div className="absolute bottom-32 left-1/3 w-20 h-20 bg-gradient-to-br from-emerald-300/10 to-green-300/10 rotate-12 rounded-2xl blur-sm"></div>
+      </div>
       
       {/* Header */}
       <div className="relative z-10 text-center py-12">
-        <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-4 animate-pulse">
+        <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-green-600 via-emerald-500 to-green-700 bg-clip-text text-transparent mb-4">
           Leave Generator 3D
         </h1>
-        <p className="text-xl text-gray-300 mb-8 font-light">
+        <p className="text-xl text-gray-600 mb-8 font-medium">
           AI-Powered Professional Leave Application System
         </p>
+        <div className="w-24 h-1 bg-gradient-to-r from-green-400 to-emerald-500 mx-auto rounded-full"></div>
       </div>
 
       {/* Main Content */}
@@ -42,11 +51,6 @@ const Index = () => {
           />
         )}
       </div>
-
-      {/* Floating Orbs */}
-      <div className="fixed top-20 left-20 w-32 h-32 bg-cyan-500/20 rounded-full blur-xl animate-pulse"></div>
-      <div className="fixed bottom-20 right-20 w-48 h-48 bg-purple-500/20 rounded-full blur-xl animate-pulse delay-1000"></div>
-      <div className="fixed top-1/2 left-1/4 w-24 h-24 bg-pink-500/20 rounded-full blur-xl animate-pulse delay-500"></div>
     </div>
   );
 };
