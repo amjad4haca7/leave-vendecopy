@@ -46,9 +46,9 @@ const Index = () => {
               className="w-48 h-32 mx-auto mb-6 object-contain"
             />
           </div>
-          <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-green-600 via-emerald-500 to-green-700 bg-clip-text text-transparent mb-6">
+          {/* <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-green-600 via-emerald-500 to-green-700 bg-clip-text text-transparent mb-6">
             Leave Vende Mone?
-          </h1>
+          </h1> */}
           <p className="text-xl text-gray-600 mb-12 font-medium">
             Professional Leave Application Generator
           </p>
