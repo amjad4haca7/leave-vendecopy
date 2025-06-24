@@ -4,11 +4,11 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { User, Calendar, FileText, Sparkles } from 'lucide-react';
+import { User, Calendar, FileText, Sparkles, Mail } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 
 interface HacaLeaveFormProps {
-  onLetterGenerated: (letter: string) => void;
+  onLetterGenerated: (letter: string, recipientEmail?: string) => void;
 }
 
 export const HacaLeaveForm = ({ onLetterGenerated }: HacaLeaveFormProps) => {
@@ -16,6 +16,7 @@ export const HacaLeaveForm = ({ onLetterGenerated }: HacaLeaveFormProps) => {
     studentName: '',
     batch: '',
     managerName: '',
+    recipientEmail: '',
     leaveDate: '',
     reason: ''
   });
@@ -86,7 +87,7 @@ ${formData.batch}`;
     setProgress(100);
 
     const letter = generateHacaLetter();
-    onLetterGenerated(letter);
+    onLetterGenerated(letter, formData.recipientEmail);
     setIsGenerating(false);
     toast({ title: "Success!", description: "HACA leave application generated!" });
   };
@@ -160,6 +161,20 @@ ${formData.batch}`;
             </div>
 
             <div className="space-y-2">
+              <Label className="text-gray-700 font-medium flex items-center gap-2">
+                <Mail className="w-4 h-4 text-emerald-500" />
+                Recipient Email (Optional)
+              </Label>
+              <Input
+                type="email"
+                value={formData.recipientEmail}
+                onChange={(e) => setFormData(prev => ({ ...prev, recipientEmail: e.target.value }))}
+                className="bg-white border-2 border-emerald-100 focus:border-emerald-400 focus:ring-emerald-200 rounded-xl shadow-sm"
+                placeholder="manager@haca.edu"
+              />
+            </div>
+
+            <div className="space-y-2 md:col-span-2">
               <Label className="text-gray-700 font-medium flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-emerald-500" />
                 Leave Date

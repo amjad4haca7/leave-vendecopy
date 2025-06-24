@@ -9,10 +9,12 @@ import { Building, GraduationCap, ArrowLeft } from 'lucide-react';
 const Index = () => {
   const [currentView, setCurrentView] = useState<'landing' | 'general' | 'haca'>('landing');
   const [generatedLetter, setGeneratedLetter] = useState<string>('');
+  const [recipientEmail, setRecipientEmail] = useState<string>('');
   const [showLetter, setShowLetter] = useState(false);
 
-  const handleLetterGenerated = (letter: string) => {
+  const handleLetterGenerated = (letter: string, email?: string) => {
     setGeneratedLetter(letter);
+    setRecipientEmail(email || '');
     setShowLetter(true);
   };
 
@@ -124,6 +126,7 @@ const Index = () => {
         ) : (
           <LetterDisplay 
             letter={generatedLetter} 
+            recipientEmail={recipientEmail}
             onBack={handleBackToForm}
           />
         )}

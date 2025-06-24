@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -10,7 +9,7 @@ import { Calendar, User, Building, Mail, Phone, FileText, Sparkles } from 'lucid
 import { toast } from '@/hooks/use-toast';
 
 interface LeaveFormProps {
-  onLetterGenerated: (letter: string) => void;
+  onLetterGenerated: (letter: string, recipientEmail?: string) => void;
 }
 
 export const LeaveForm = ({ onLetterGenerated }: LeaveFormProps) => {
@@ -20,6 +19,7 @@ export const LeaveForm = ({ onLetterGenerated }: LeaveFormProps) => {
     designation: '',
     email: '',
     phone: '',
+    recipientEmail: '',
     isSingleDay: false,
     leaveDate: '',
     startDate: '',
@@ -163,7 +163,7 @@ Phone: ${formData.phone}`;
     setProgress(100);
 
     const letter = generateDynamicLetter();
-    onLetterGenerated(letter);
+    onLetterGenerated(letter, formData.recipientEmail);
     setIsGenerating(false);
     toast({ title: "Success!", description: "Dynamic leave application generated!" });
   };
@@ -243,7 +243,7 @@ Phone: ${formData.phone}`;
               <div className="space-y-2">
                 <Label className="text-gray-700 font-medium flex items-center gap-2">
                   <Mail className="w-4 h-4 text-green-500" />
-                  Email
+                  Your Email
                 </Label>
                 <Input
                   type="email"
@@ -264,6 +264,20 @@ Phone: ${formData.phone}`;
                   onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
                   className="bg-white border-2 border-green-100 focus:border-green-400 focus:ring-green-200 rounded-xl shadow-sm"
                   placeholder="+1 (555) 123-4567"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label className="text-gray-700 font-medium flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-blue-500" />
+                  Recipient Email (Optional)
+                </Label>
+                <Input
+                  type="email"
+                  value={formData.recipientEmail}
+                  onChange={(e) => setFormData(prev => ({ ...prev, recipientEmail: e.target.value }))}
+                  className="bg-white border-2 border-green-100 focus:border-green-400 focus:ring-green-200 rounded-xl shadow-sm"
+                  placeholder="manager@company.com"
                 />
               </div>
             </div>

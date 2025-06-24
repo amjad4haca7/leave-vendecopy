@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Copy, Download, ArrowLeft, FileText, Check, Mail } from 'lucide-react';
@@ -6,10 +5,11 @@ import { toast } from '@/hooks/use-toast';
 
 interface LetterDisplayProps {
   letter: string;
+  recipientEmail?: string;
   onBack: () => void;
 }
 
-export const LetterDisplay = ({ letter, onBack }: LetterDisplayProps) => {
+export const LetterDisplay = ({ letter, recipientEmail, onBack }: LetterDisplayProps) => {
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = async () => {
@@ -39,9 +39,15 @@ export const LetterDisplay = ({ letter, onBack }: LetterDisplayProps) => {
   const openGmail = () => {
     const subject = encodeURIComponent("Leave Application Request");
     const body = encodeURIComponent(letter);
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&su=${subject}&body=${body}`;
+    const to = recipientEmail ? encodeURIComponent(recipientEmail) : '';
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${to}&su=${subject}&body=${body}`;
     window.open(gmailUrl, '_blank');
-    toast({ title: "Opening Gmail", description: "Gmail compose window opened in new tab" });
+    toast({ 
+      title: "Opening Gmail", 
+      description: recipientEmail 
+        ? `Gmail compose window opened with recipient: ${recipientEmail}` 
+        : "Gmail compose window opened in new tab" 
+    });
   };
 
   const printLetter = () => {
@@ -110,7 +116,7 @@ export const LetterDisplay = ({ letter, onBack }: LetterDisplayProps) => {
               className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-6 py-3 rounded-2xl shadow-[0_8px_24px_rgba(239,68,68,0.3)] hover:shadow-[0_12px_32px_rgba(239,68,68,0.4)] transition-all duration-300 transform hover:scale-105"
             >
               <Mail className="w-5 h-5 mr-2" />
-              Mail Now (Gmail)
+              {recipientEmail ? `Mail to ${recipientEmail}` : 'Mail Now (Gmail)'}
             </Button>
 
             <Button
