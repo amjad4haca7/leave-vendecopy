@@ -39,9 +39,9 @@ const Index = () => {
         <div className="relative z-10 text-center py-16">
           <div className="mb-8">
             <img 
-              src="/lovable-uploads/49617102-28ca-47be-ab33-dca794bef2b9.png" 
+              src="/lovable-uploads/33e7c33e-7549-4d7f-bd51-44417ade4d3f.png" 
               alt="Leave Vende Mone Logo" 
-              className="w-32 h-32 mx-auto mb-6 rounded-full shadow-lg"
+              className="w-48 h-32 mx-auto mb-6 object-contain"
             />
           </div>
           <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-green-600 via-emerald-500 to-green-700 bg-clip-text text-transparent mb-6">
