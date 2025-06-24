@@ -41,7 +41,7 @@ const Index = () => {
         <div className="relative z-10 text-center py-16">
           <div className="mb-8">
             <img 
-              src="/lovable-uploads/33e7c33e-7549-4d7f-bd51-44417ade4d3f.png" 
+              src="/lovable-uploads/logo.png" 
               alt="Leave Vende Mone Logo" 
               className="w-48 h-32 mx-auto mb-6 object-contain"
             />
