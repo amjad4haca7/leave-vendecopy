@@ -38,49 +38,45 @@ const Index = () => {
         </div>
         
         {/* Header */}
-        <div className="relative z-10 text-center py-16">
-          <div className="mb-8">
+        <div className="relative z-10 text-center py-8 md:py-12">
+          <div className="mb-4 md:mb-8">
             <img 
-              src="/lovable-uploads/logo.png" 
-              alt="Leave Vende Mone Logo" 
-              className="w-72 h-48 mx-auto mb-6 object-contain"
-
+              src="/lovable-uploads/33e7c33e-7549-4d7f-bd51-44417ade4d3f.png" 
+              alt="Leave Application Generator Logo" 
+              className="w-56 h-40 md:w-64 md:h-48 mx-auto mb-4 md:mb-6 object-contain"
             />
           </div>
-          {/* <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-green-600 via-emerald-500 to-green-700 bg-clip-text text-transparent mb-6">
-            Leave Vende Mone?
-          </h1> */}
-          <p className="text-xl text-gray-600 mb-12 font-medium">
-            Professional Leave Application Generator
+          <p className="text-sm md:text-base text-gray-600 mb-6 md:mb-8 font-medium px-4">
+            Leave Application Generator
           </p>
         </div>
 
         {/* Button Options */}
         <div className="relative z-10 container mx-auto px-4 max-w-2xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <Button
               onClick={() => setCurrentView('general')}
-              className="h-40 bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-3xl shadow-[0_20px_60px_rgba(34,197,94,0.3)] hover:shadow-[0_25px_70px_rgba(34,197,94,0.4)] transition-all duration-500 transform hover:scale-105 flex flex-col items-center justify-center gap-4 group"
+              className="h-32 md:h-40 bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-3xl shadow-[0_20px_60px_rgba(34,197,94,0.3)] hover:shadow-[0_25px_70px_rgba(34,197,94,0.4)] transition-all duration-500 transform hover:scale-105 flex flex-col items-center justify-center gap-3 md:gap-4 group"
             >
-              <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm group-hover:bg-white/30 transition-all duration-300">
-                <Building className="w-8 h-8" />
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm group-hover:bg-white/30 transition-all duration-300">
+                <Building className="w-6 h-6 md:w-8 md:h-8" />
               </div>
               <div>
-                <div className="text-2xl font-bold">General Use</div>
-                <div className="text-green-100 text-sm">For all organizations</div>
+                <div className="text-xl md:text-2xl font-bold">General Use</div>
+                <div className="text-green-100 text-xs md:text-sm">For all organizations</div>
               </div>
             </Button>
 
             <Button
               onClick={() => setCurrentView('haca')}
-              className="h-40 bg-gradient-to-br from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white rounded-3xl shadow-[0_20px_60px_rgba(16,185,129,0.3)] hover:shadow-[0_25px_70px_rgba(16,185,129,0.4)] transition-all duration-500 transform hover:scale-105 flex flex-col items-center justify-center gap-4 group"
+              className="h-32 md:h-40 bg-gradient-to-br from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white rounded-3xl shadow-[0_20px_60px_rgba(16,185,129,0.3)] hover:shadow-[0_25px_70px_rgba(16,185,129,0.4)] transition-all duration-500 transform hover:scale-105 flex flex-col items-center justify-center gap-3 md:gap-4 group"
             >
-              <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm group-hover:bg-white/30 transition-all duration-300">
-                <GraduationCap className="w-8 h-8" />
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm group-hover:bg-white/30 transition-all duration-300">
+                <GraduationCap className="w-6 h-6 md:w-8 md:h-8" />
               </div>
               <div>
-                <div className="text-2xl font-bold">HACA</div>
-                <div className="text-emerald-100 text-sm">Harris and Co Academy</div>
+                <div className="text-xl md:text-2xl font-bold">HACA</div>
+                <div className="text-emerald-100 text-xs md:text-sm">Harris and Co Academy</div>
               </div>
             </Button>
           </div>
@@ -99,17 +95,17 @@ const Index = () => {
       </div>
       
       {/* Header with Back Button */}
-      <div className="relative z-10 text-center py-8">
-        <div className="flex items-center justify-between max-w-6xl mx-auto px-4 mb-6">
+      <div className="relative z-10 text-center py-6 md:py-8">
+        <div className="flex items-center justify-between max-w-6xl mx-auto px-4 mb-4 md:mb-6">
           <Button
             onClick={handleBackToLanding}
             variant="outline"
-            className="border-green-300 text-green-700 hover:bg-green-50 rounded-xl"
+            className="border-green-300 text-green-700 hover:bg-green-50 rounded-xl text-sm md:text-base"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Home
           </Button>
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-600 via-emerald-500 to-green-700 bg-clip-text text-transparent">
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-green-600 via-emerald-500 to-green-700 bg-clip-text text-transparent">
             {currentView === 'haca' ? 'HACA Leave Application' : 'General Leave Application'}
           </h1>
           <div></div>
