@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -7,12 +7,14 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Calendar, User, Building, Mail, Phone, FileText, Sparkles } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
+import { useUserProfiles } from '@/hooks/useUserProfiles';
 
 interface LeaveFormProps {
   onLetterGenerated: (letter: string, recipientEmail?: string) => void;
 }
 
 export const LeaveForm = ({ onLetterGenerated }: LeaveFormProps) => {
+  const { generalProfile } = useUserProfiles();
   const [formData, setFormData] = useState({
     companyName: '',
     userName: '',
@@ -31,6 +33,21 @@ export const LeaveForm = ({ onLetterGenerated }: LeaveFormProps) => {
 
   const [isGenerating, setIsGenerating] = useState(false);
   const [progress, setProgress] = useState(0);
+
+  // Auto-fill form when generalProfile is loaded
+  useEffect(() => {
+    if (generalProfile) {
+      setFormData(prev => ({
+        ...prev,
+        companyName: generalProfile.company_name || '',
+        userName: generalProfile.user_name || '',
+        designation: generalProfile.designation || '',
+        email: generalProfile.email || '',
+        phone: generalProfile.phone || '',
+        recipientEmail: generalProfile.recipient_email || ''
+      }));
+    }
+  }, [generalProfile]);
 
   const reasonSuggestions = [
     "Personal medical appointment",
