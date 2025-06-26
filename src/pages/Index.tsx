@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { LeaveForm } from '@/components/LeaveForm';
 import { HacaLeaveForm } from '@/components/HacaLeaveForm';
 import { LetterDisplay } from '@/components/LetterDisplay';
+import { UserMenu } from '@/components/UserMenu';
 import { Building, GraduationCap, ArrowLeft } from 'lucide-react';
 
 const Index = () => {
@@ -37,16 +38,21 @@ const Index = () => {
           <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-gradient-to-br from-emerald-200/40 to-green-200/40 rounded-full blur-xl"></div>
         </div>
         
+        {/* User Menu */}
+        <div className="relative z-10 flex justify-end p-4">
+          <UserMenu />
+        </div>
+        
         {/* Header */}
-        <div className="relative z-10 text-center py-8 md:py-12">
-          <div className="mb-4 md:mb-8">
+        <div className="relative z-10 text-center py-4 md:py-8">
+          <div className="mb-6 md:mb-8">
             <img 
               src="/lovable-uploads/logo.png" 
               alt="Leave Application Generator Logo" 
-              className="w-56 h-40 md:w-64 md:h-48 mx-auto mb-4 md:mb-6 object-contain"
+              className="w-64 h-48 md:w-80 md:h-60 mx-auto mb-4 md:mb-6 object-contain"
             />
           </div>
-          <p className="text-sm md:text-base text-gray-600 mb-6 md:mb-8 font-medium px-4">
+          <p className="text-base md:text-lg text-gray-600 mb-8 md:mb-12 font-medium px-4">
             Leave Application Generator
           </p>
         </div>
@@ -94,7 +100,7 @@ const Index = () => {
         <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-gradient-to-br from-emerald-200/40 to-green-200/40 rounded-full blur-xl"></div>
       </div>
       
-      {/* Header with Back Button */}
+      {/* Header with Back Button and User Menu */}
       <div className="relative z-10 text-center py-6 md:py-8">
         <div className="flex items-center justify-between max-w-6xl mx-auto px-4 mb-4 md:mb-6">
           <Button
@@ -108,7 +114,7 @@ const Index = () => {
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-green-600 via-emerald-500 to-green-700 bg-clip-text text-transparent">
             {currentView === 'haca' ? 'HACA Leave Application' : 'General Leave Application'}
           </h1>
-          <div></div>
+          <UserMenu />
         </div>
       </div>
 

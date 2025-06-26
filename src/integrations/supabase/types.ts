@@ -9,7 +9,115 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      general_profiles: {
+        Row: {
+          company_name: string | null
+          created_at: string | null
+          designation: string | null
+          email: string | null
+          id: string
+          phone: string | null
+          recipient_email: string | null
+          updated_at: string | null
+          user_id: string | null
+          user_name: string | null
+        }
+        Insert: {
+          company_name?: string | null
+          created_at?: string | null
+          designation?: string | null
+          email?: string | null
+          id?: string
+          phone?: string | null
+          recipient_email?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+          user_name?: string | null
+        }
+        Update: {
+          company_name?: string | null
+          created_at?: string | null
+          designation?: string | null
+          email?: string | null
+          id?: string
+          phone?: string | null
+          recipient_email?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+          user_name?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "general_profiles_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      haca_profiles: {
+        Row: {
+          batch: string | null
+          created_at: string | null
+          id: string
+          manager_name: string | null
+          recipient_email: string | null
+          student_name: string | null
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          batch?: string | null
+          created_at?: string | null
+          id?: string
+          manager_name?: string | null
+          recipient_email?: string | null
+          student_name?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          batch?: string | null
+          created_at?: string | null
+          id?: string
+          manager_name?: string | null
+          recipient_email?: string | null
+          student_name?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "haca_profiles_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string | null
+          email: string | null
+          id: string
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          email?: string | null
+          id: string
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string | null
+          id?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
